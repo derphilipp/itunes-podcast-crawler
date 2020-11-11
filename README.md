@@ -4,6 +4,8 @@ A crawl will take approximetely 1-2 days and at the time of this writing (Nov 20
 
 Please note: this is a rough and hacky script, no guarantees are given nor is it an example of good programming practices. You'll need to install beautifulsoup4 for it to run and consider adjusting the folder structures listed in the variables of the top section. 
 
+The crawler will look into a config directory to see if an allfeeds.json or allpodcastlinks.json file already exist. If that is the case then it will use those to start instead of doing a full crawl to speed up the process. 
+
 Some other considerations: 
 - the crawler is going through all feeds in one go. Feeds that cannot be retrieved are listed as errors and will not be included in the result set. A future iteration fo this tool may include a mechanism to queue those feeds and run through them at the end of the crawl for a second time because I'm sure some of those errors would be solved by trying at a different moment. 
 - the crawler's first step is to iterate through the Apple directory's landing page which is organized by alphabet. Unfortunately many languages have special characters and I decided against iterating over all of them. So I may miss a number of shows. However, my personal focus was on English and German as a language and both should be covered. 
