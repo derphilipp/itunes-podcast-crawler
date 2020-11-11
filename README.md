@@ -7,15 +7,16 @@ Please note: this is a rough and hacky script, no guarantees are given nor is it
 Some other considerations: 
 - the crawler is going through all feeds in one go. Feeds that cannot be retrieved are listed as errors and will not be included in the result set. A future iteration fo this tool may include a mechanism to queue those feeds and run through them at the end of the crawl for a second time because I'm sure some of those errors would be solved by trying at a different moment. 
 - the crawler's first step is to iterate through the Apple directory's landing page which is organized by alphabet. Unfortunately many languages have special characters and I decided against iterating over all of them. So I may miss a number of shows. However, my personal focus was on English and German as a language and both should be covered. 
-- the script generates a range of result files that are to some degree repetitive. 
 - while I call Apple's API and the feeds to retrieve information I decided not to store everything those calls return. In other words: there is more stuff YOU could decide to keep that I throw away. 
 - Feeds have errors. That means some podcasts may be misattributed because settings like language have been wrong
 - Depending on the geo you're starting from Apple may not show you everything. E.g. if you're crawling from India then all podcasts that contain even just one episode flagged as "explicit" will not be in the result set for Apple is filtering those to comply with local laws. 
 
-allfeeds.json => this file contains the resolved feed urls
-allpodcastlinks.json => result of the web crawl over the itunes directory, contains itunes URLs
-data_all.json => everything collected from the feeds
-data_all_2020.json => feeds that saw an update in 2020
-data_de.json => everything flagged as German
-data_en.json => everything flagged as English
-errors.json => feeds the crawler could not retrieve
+the script generates a range of result files that are to some degree repetitive. 
+
+- allfeeds.json => this file contains the resolved feed urls
+- allpodcastlinks.json => result of the web crawl over the itunes directory, contains itunes URLs
+- data_all.json => everything collected from the feeds
+- data_all_2020.json => feeds that saw an update in 2020
+- data_de.json => everything flagged as German
+- data_en.json => everything flagged as English
+- errors.json => feeds the crawler could not retrieve
